@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
+    <title>AppAR-Public-API</title>
+    <link type="text/css" rel="stylesheet" href="assets/css/github-markdown.css">
+    <link type="text/css" rel="stylesheet" href="assets/css/pilcrow.css">
+    <link type="text/css" rel="stylesheet" href="assets/css/hljs-github.min.css"/>
+  </head>
+  <body>
+    <article class="markdown-body"><h1 id="appar-public-api"><a class="header-link" href="#appar-public-api"></a>AppAR-Public-API</h1>
+<p>Api pública AppARv1, construida en nodeJS, utilizando express, mySQL y mongoDB para la comunicación entre terceros y la base de datos AppAR para integraciones nativas.</p>
+<h1 id="herramientas-y-configuración"><a class="header-link" href="#herramientas-y-configuración"></a>Herramientas y configuración</h1>
+<p>Para consumir a manera de testing la API se recomienda utilizar el software <a href="https://insomnia.rest/download">Insomnia</a>, crear un &quot;Request collection&quot; y organizar las peticiones en carpetas según el desglose a continuación.
+Para el manejo de sesión se implementan &quot;Bearer Tokens&quot;, los cuales deben ir incluidos en la cabecera de todas las peticiones que lo soliciten. </p>
+<blockquote>
+<p>Es posible configurar Insomnia para que automáticamente obtenga un Token válido antes de hacer una petición utilizando la petición para iniciar sesión siguiendo <a href="https://www.ankursheel.com/blog/automatically-set-access-token-authenticated-requests-insomnia">estos pasos</a>.</p>
+</blockquote>
+<p>Todas las peticiones POST y PUT reciben datos en formato JSON, salvo las peticiones que reciben archivos o imágenes (cuyo formato es Multipart Form, siendo el archivo nombrado &quot;file&quot; en la petición).</p>
+<h2 id="endpoints"><a class="header-link" href="#endpoints"></a>Endpoints</h2>
+<p>Cada endpoint se define bajo el nombre de la petición en esta wiki, asumiendo que se tiene la base de la api:</p>
+<pre class="hljs"><code>http:<span class="hljs-regexp">//</span>localhost:<span class="hljs-number">5000</span> para local
+https:<span class="hljs-regexp">//</span>dev.api.appar.io/modelviewer-v1 para ambiente sandbox</code></pre><p>Teniendo que combinar el endpoint definido por la wiki junto con la base que se desee utilizar, por ejemplo: <a href="http://localhost:4000/auth">http://localhost:4000/auth</a> para login.</p>
+<p>Cuando se define una ruta dinámica, como una ruta con id, se define como:</p>
+<pre class="hljs"><code><span class="hljs-regexp">/ruta/</span>:nombre_variable</code></pre><p>quedando el endpoint por ejemplo: <a href="http://localhost:4000/user/1">http://localhost:4000/user/1</a></p>
+<p>Todas las peticiones retornan un status 200 OK de haber sido exitosa, en cada definición de petición se indica si además de ese estado retorna contenido en su cuerpo</p>
+<h1 id="índice"><a class="header-link" href="./Índice.html"></a><a href="./Índice.html">Índice</a></h1>
+    </article>
+  </body>
+</html>

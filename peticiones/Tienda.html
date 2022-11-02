@@ -1,0 +1,111 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
+    <title>Tiendas de usuario &#x60;GET&#x60;</title>
+    <link type="text/css" rel="stylesheet" href="../assets/css/github-markdown.css">
+    <link type="text/css" rel="stylesheet" href="../assets/css/pilcrow.css">
+    <link type="text/css" rel="stylesheet" href="../assets/css/hljs-github.min.css"/>
+  </head>
+  <body>
+    <article class="markdown-body"><h3 id="tiendas-de-usuario-get"><a class="header-link" href="#tiendas-de-usuario-get"></a>Tiendas de usuario <code>GET</code></h3>
+<pre class="hljs"><code><span class="hljs-string">/store</span></code></pre><p>Obtener todas las tiendas del usuario del token</p>
+<blockquote>
+<p>Se incluyen datos de vinculación con terceros.
+Si la tienda está vinculada con mas de un externo se retornará repetida las veces que esté vinculada.</p>
+</blockquote>
+<h4 id="request-body"><a class="header-link" href="#request-body"></a>Request Body</h4>
+<pre class="hljs"><code><span class="hljs-attribute"> No tiene</span></code></pre><h4 id="retorna"><a class="header-link" href="#retorna"></a>Retorna</h4>
+<pre class="hljs"><code>[
+    {
+        <span class="hljs-attr">&quot;store_id&quot;</span>: <span class="hljs-number">1</span>,
+        <span class="hljs-attr">&quot;name&quot;</span>: <span class="hljs-string">&quot;Tienda&quot;</span>,
+        <span class="hljs-attr">&quot;email&quot;</span>: <span class="hljs-string">&quot;store@store.com&quot;</span>,
+        <span class="hljs-attr">&quot;url&quot;</span>: <span class="hljs-string">&quot;https://store.com&quot;</span>,
+        <span class="hljs-attr">&quot;created_at&quot;</span>: <span class="hljs-string">&quot;2021-09-21T15:26:04.000Z&quot;</span>,
+        <span class="hljs-attr">&quot;updated_at&quot;</span>: <span class="hljs-string">&quot;2021-09-21T15:26:04.000Z&quot;</span>,
+        <span class="hljs-attr">&quot;call_to_action&quot;</span>: <span class="hljs-literal">null</span>,
+        <span class="hljs-attr">&quot;logo_url&quot;</span>: <span class="hljs-literal">null</span>,
+        <span class="hljs-attr">&quot;store_provider_id&quot;</span>: <span class="hljs-number">1</span>,
+        <span class="hljs-attr">&quot;provider_name&quot;</span>: <span class="hljs-string">&quot;shopify&quot;</span>,
+        <span class="hljs-attr">&quot;provider_icon_url&quot;</span>: <span class="hljs-string">&quot;https://cdn.shopify.com/static/shopify-favicon.png&quot;</span>
+    },
+    {
+        <span class="hljs-attr">&quot;store_id&quot;</span>: <span class="hljs-number">1</span>,
+        <span class="hljs-attr">&quot;name&quot;</span>: <span class="hljs-string">&quot;Tienda&quot;</span>,
+        <span class="hljs-attr">&quot;email&quot;</span>: <span class="hljs-string">&quot;store@store.com&quot;</span>,
+        <span class="hljs-attr">&quot;url&quot;</span>: <span class="hljs-string">&quot;https://store.com&quot;</span>,
+        <span class="hljs-attr">&quot;created_at&quot;</span>: <span class="hljs-string">&quot;2021-09-21T15:26:04.000Z&quot;</span>,
+        <span class="hljs-attr">&quot;updated_at&quot;</span>: <span class="hljs-string">&quot;2021-09-21T15:26:04.000Z&quot;</span>,
+        <span class="hljs-attr">&quot;call_to_action&quot;</span>: <span class="hljs-literal">null</span>,
+        <span class="hljs-attr">&quot;logo_url&quot;</span>: <span class="hljs-literal">null</span>,
+        <span class="hljs-attr">&quot;store_provider_id&quot;</span>: <span class="hljs-number">2</span>,
+        <span class="hljs-attr">&quot;provider_name&quot;</span>: <span class="hljs-string">&quot;tiendanube&quot;</span>,
+        <span class="hljs-attr">&quot;provider_icon_url&quot;</span>: <span class="hljs-string">&quot;http://d26lpennugtm8s.cloudfront.net/assets/common/favicon.ico&quot;</span>
+    }
+]</code></pre><h4 id="errores"><a class="header-link" href="#errores"></a>Errores</h4>
+<pre class="hljs"><code><span class="hljs-symbol">500 </span>error_retrieving_stores Si hay un <span class="hljs-keyword">error</span> al obtener las tiendas</code></pre><hr>
+<h3 id="productos-de-tienda-get"><a class="header-link" href="#productos-de-tienda-get"></a>Productos de tienda <code>GET</code></h3>
+<pre class="hljs"><code>/store/<span class="hljs-symbol">:store_id/products</span></code></pre><p>Obtener todos los productos de una tienda</p>
+<blockquote>
+<p>Retorna también datos de vinculación con terceros.</p>
+</blockquote>
+<h4 id="request-body-1"><a class="header-link" href="#request-body-1"></a>Request Body</h4>
+<pre class="hljs"><code><span class="hljs-attribute">No tiene</span></code></pre><h4 id="retorna-1"><a class="header-link" href="#retorna-1"></a>Retorna</h4>
+<pre class="hljs"><code>[
+    {
+        <span class="hljs-attr">&quot;product_id&quot;</span>: <span class="hljs-number">4</span>,
+        <span class="hljs-attr">&quot;store_id&quot;</span>: <span class="hljs-number">1</span>,
+        <span class="hljs-attr">&quot;name&quot;</span>: <span class="hljs-string">&quot;Producto&quot;</span>,
+        <span class="hljs-attr">&quot;created_at&quot;</span>: <span class="hljs-string">&quot;2021-11-11T15:08:48.000Z&quot;</span>,
+        <span class="hljs-attr">&quot;updated_at&quot;</span>: <span class="hljs-string">&quot;2021-11-11T15:08:48.000Z&quot;</span>,
+        <span class="hljs-attr">&quot;url&quot;</span>: <span class="hljs-literal">null</span>,
+        <span class="hljs-attr">&quot;sub_category_id&quot;</span>: <span class="hljs-literal">null</span>,
+        <span class="hljs-attr">&quot;show_dimensions&quot;</span>: <span class="hljs-number">0</span>,
+        <span class="hljs-attr">&quot;store_provider_id&quot;</span>: <span class="hljs-literal">null</span>,
+        <span class="hljs-attr">&quot;provider_product_id&quot;</span>: <span class="hljs-literal">null</span>,
+        <span class="hljs-attr">&quot;product_url&quot;</span>: <span class="hljs-literal">null</span>,
+        <span class="hljs-attr">&quot;provider_name&quot;</span>: <span class="hljs-literal">null</span>,
+        <span class="hljs-attr">&quot;provider_icon_url&quot;</span>: <span class="hljs-literal">null</span>
+    }
+]</code></pre><h4 id="errores-1"><a class="header-link" href="#errores-1"></a>Errores</h4>
+<pre class="hljs"><code><span class="hljs-symbol">403 </span>Si la tienda no le pertenece al usuario del token
+<span class="hljs-symbol">500 </span>error_retrieving_store Si hay un <span class="hljs-keyword">error</span> al buscar la tienda solicitada
+<span class="hljs-symbol">500 </span>store_not_found Si no existe una tienda con la id entregada
+<span class="hljs-symbol">500 </span>error_retrieving_products Si hay un <span class="hljs-keyword">error</span> buscando los productos de la tienda</code></pre><hr>
+<h3 id="asignar-proveedor-de-producto-post"><a class="header-link" href="#asignar-proveedor-de-producto-post"></a>Asignar proveedor de producto <code>POST</code></h3>
+<pre class="hljs"><code>/store/<span class="hljs-symbol">:store_id/</span><span class="hljs-symbol">:provider_name/products</span></code></pre><p>Asignar id de externo a un producto AppAR</p>
+<blockquote>
+<p>El provider_key es la id con la que el externo almacena el producto en su sistema, de manera tal que se vincule su id con la id AppAR.
+El provider_url puede ser null.
+El provider_name es uno de los strings de los válidos en la plataforma, por ejemplo: /store/1/shopify/products.</p>
+</blockquote>
+<h4 id="request-body-2"><a class="header-link" href="#request-body-2"></a>Request Body</h4>
+<pre class="hljs"><code>{
+    <span class="hljs-attr">&quot;product_id&quot;</span>: <span class="hljs-number">2</span>,
+    <span class="hljs-attr">&quot;provider_key&quot;</span>: <span class="hljs-string">&quot;gid://shopify/Product/6614760358082&quot;</span>,
+    <span class="hljs-attr">&quot;provider_url&quot;</span>: <span class="hljs-string">&quot;https://apparplus.myshopify.com/products/carpincho&quot;</span>
+}</code></pre><h4 id="retorna-2"><a class="header-link" href="#retorna-2"></a>Retorna</h4>
+<pre class="hljs"><code><span class="hljs-attribute">Nada</span></code></pre><h4 id="errores-2"><a class="header-link" href="#errores-2"></a>Errores</h4>
+<pre class="hljs"><code><span class="hljs-symbol">403 </span>Si el usuario es tipo manager o el producto no le pertenece
+<span class="hljs-symbol">500 </span>error_retrieving_product Si hay un <span class="hljs-keyword">error</span> al obtener el producto
+<span class="hljs-symbol">500 </span>product_not_found Si no se encuentra un producto con la id entregada
+<span class="hljs-symbol">500 </span>error_checking_ownership Si hay un <span class="hljs-keyword">error</span> verificando que el producto le pertenece
+<span class="hljs-symbol">500 </span>error_retrieving_provider Si hay un <span class="hljs-keyword">error</span> buscando el proveedor a asignar
+<span class="hljs-symbol">500 </span>provider_not_found Si no se encuentra un proveedor con el nombre entregado
+<span class="hljs-symbol">500 </span>error_checking_provider Si hay un <span class="hljs-keyword">error</span> verificando que la id de externo no esté registrada
+<span class="hljs-symbol">500 </span>provider_already_has_product Si la id de externo entregada ya se encuentra registrada
+<span class="hljs-symbol">500 </span>error_saving_store_provider Si hay un <span class="hljs-keyword">error</span> guardando el enlace con el externo</code></pre><hr>
+<h3 id="borrar-proveedor-de-producto-delete"><a class="header-link" href="#borrar-proveedor-de-producto-delete"></a>Borrar proveedor de producto <code>DELETE</code></h3>
+<pre class="hljs"><code>/<span class="hljs-symbol">:store_id/</span><span class="hljs-symbol">:provider_name/products/</span><span class="hljs-symbol">:product_id</span></code></pre><p>Eliminar vínculo con id de plataforma externa para poder vincular ya sea el producto AppAR o la id externa a un producto diferente</p>
+<blockquote>
+<p>El product_id corresponde a la id de producto AppAR.
+El provider_name es uno de los strings de los válidos en la plataforma, por ejemplo: /store/1/shopify/products.</p>
+</blockquote>
+<h4 id="request-body-3"><a class="header-link" href="#request-body-3"></a>Request Body</h4>
+<pre class="hljs"><code><span class="hljs-attribute">No tiene</span></code></pre><h4 id="retorna-3"><a class="header-link" href="#retorna-3"></a>Retorna</h4>
+<pre class="hljs"><code><span class="hljs-attribute">Nada</span></code></pre><h4 id="errores-3"><a class="header-link" href="#errores-3"></a>Errores</h4>
+<pre class="hljs"><code><span class="hljs-symbol">500 </span><span class="hljs-keyword">ERROR</span></code></pre>    </article>
+  </body>
+</html>

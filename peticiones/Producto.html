@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
+    <title>Producto de externo &#x60;GET&#x60;</title>
+    <link type="text/css" rel="stylesheet" href="../assets/css/github-markdown.css">
+    <link type="text/css" rel="stylesheet" href="../assets/css/pilcrow.css">
+    <link type="text/css" rel="stylesheet" href="../assets/css/hljs-github.min.css"/>
+  </head>
+  <body>
+    <article class="markdown-body"><h3 id="producto-de-externo-get"><a class="header-link" href="#producto-de-externo-get"></a>Producto de externo <code>GET</code></h3>
+<pre class="hljs"><code>/product?<span class="hljs-attribute">provider_product_id</span>=prod5220044</code></pre><p>Obtener el model_id de un producto externo de integración entregando la id de producto de la plataforma externa a la que está vinculado el producto AppAR</p>
+<blockquote>
+<p>Esta ruta es pública, no necesita Bearer Token en la cabecera.</p>
+</blockquote>
+<h4 id="request-body"><a class="header-link" href="#request-body"></a>Request Body</h4>
+<pre class="hljs"><code><span class="hljs-attribute">No tiene</span></code></pre><h4 id="retorna"><a class="header-link" href="#retorna"></a>Retorna</h4>
+<pre class="hljs"><code>{
+    <span class="hljs-attr">&quot;model_id&quot;</span>: <span class="hljs-number">1</span>
+}</code></pre><h4 id="errores"><a class="header-link" href="#errores"></a>Errores</h4>
+<pre class="hljs"><code><span class="hljs-symbol">500 </span>error_retrieving_product Si hay un <span class="hljs-keyword">error</span> obteniendo los datos
+<span class="hljs-symbol">500 </span>product_not_found Si no se encuentra esa id externa vinculada a un producto AppAR</code></pre>    </article>
+  </body>
+</html>

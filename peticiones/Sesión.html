@@ -1,0 +1,91 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
+    <title>Iniciar sesión &#x60;POST&#x60;</title>
+    <link type="text/css" rel="stylesheet" href="../assets/css/github-markdown.css">
+    <link type="text/css" rel="stylesheet" href="../assets/css/pilcrow.css">
+    <link type="text/css" rel="stylesheet" href="../assets/css/hljs-github.min.css"/>
+  </head>
+  <body>
+    <article class="markdown-body"><h3 id="iniciar-sesión-post"><a class="header-link" href="#iniciar-sesión-post"></a>Iniciar sesión <code>POST</code></h3>
+<pre class="hljs"><code><span class="hljs-string">/auth</span></code></pre><p>Iniciar sesión en AppAR utilizando correo y contraseña asociadas a una cuenta</p>
+<blockquote>
+<p>Esta petición puede ser consumida por Insomnia para autenticar las peticiones que necesiten de sesión iniciada.
+El JWT tiene una duración de 2 días desde que es generado, luego de eso ya no puede ser utilizado para iniciar sesión.
+Esta petición es pública, no necesita Bearer Token en la cabecera.</p>
+</blockquote>
+<h4 id="request-body"><a class="header-link" href="#request-body"></a>Request Body</h4>
+<pre class="hljs"><code>{
+    <span class="hljs-attr">&quot;email&quot;</span>: <span class="hljs-string">&quot;email@email.com&quot;</span>,
+    <span class="hljs-attr">&quot;password&quot;</span>: <span class="hljs-string">&quot;123123&quot;</span>
+}</code></pre><h4 id="retorna"><a class="header-link" href="#retorna"></a>Retorna</h4>
+<pre class="hljs"><code>JWT firmado para utilizar como Bearer <span class="hljs-keyword">Token</span> <span class="hljs-keyword">en</span> el resto <span class="hljs-keyword">de</span> peticiones. 
+El <span class="hljs-keyword">token</span> contiene <span class="hljs-keyword">en</span> <span class="hljs-keyword">su</span> payload informació<span class="hljs-keyword">n</span> relevante del usuario, 
+pudiendo ser utilizada <span class="hljs-keyword">en</span> el dashboard:</code></pre><pre class="hljs"><code>{
+     <span class="hljs-attr">&quot;user_id&quot;</span>: <span class="hljs-number">1</span>,
+     <span class="hljs-attr">&quot;user_type_id&quot;</span>: <span class="hljs-number">2</span>,
+     <span class="hljs-attr">&quot;email&quot;</span>: <span class="hljs-string">&quot;email@email.com&quot;</span>,
+     <span class="hljs-attr">&quot;name&quot;</span>: <span class="hljs-string">&quot;Nombre&quot;</span>,
+     <span class="hljs-attr">&quot;lastname&quot;</span>: <span class="hljs-string">&quot;Apellido&quot;</span>,
+     <span class="hljs-attr">&quot;features&quot;</span>: [
+       {
+         <span class="hljs-attr">&quot;feature_id&quot;</span>: <span class="hljs-number">99</span>,
+         <span class="hljs-attr">&quot;name&quot;</span>: <span class="hljs-string">&quot;feature&quot;</span>
+       }
+     ],
+     <span class="hljs-attr">&quot;iat&quot;</span>: <span class="hljs-number">1640703924</span>,
+     <span class="hljs-attr">&quot;exp&quot;</span>: <span class="hljs-number">1640876724</span>,
+     <span class="hljs-attr">&quot;iss&quot;</span>: <span class="hljs-string">&quot;AppAR Plus&quot;</span>
+}</code></pre><h4 id="errores"><a class="header-link" href="#errores"></a>Errores</h4>
+<pre class="hljs"><code><span class="hljs-symbol">500 </span>error_retrieving_user Si hay un <span class="hljs-keyword">error</span> al buscar el email
+<span class="hljs-symbol">500 </span>user_not_found Si el email no está registrado
+<span class="hljs-symbol">500 </span>user_disabled Si el usuario es tipo <span class="hljs-number">3</span> y no está habilitado
+<span class="hljs-symbol">500 </span>user_not_verified Si el usuario no está verificado
+<span class="hljs-symbol">500 </span>error_retrieving_features Si hay un <span class="hljs-keyword">error</span> al obtener las features del usuario
+<span class="hljs-symbol">500 </span>credentials_not_valid si la combinación correo-contraseña no es correcta</code></pre><hr>
+<h3 id="iniciar-sesión-con-token-get"><a class="header-link" href="#iniciar-sesión-con-token-get"></a>Iniciar sesión con token <code>GET</code></h3>
+<pre class="hljs"><code><span class="hljs-string">/auth</span></code></pre><p>Iniciar sesión con un Bearer Token existente, de manera tal que no se necesite correo y contraseña</p>
+<blockquote>
+<p>Si el JWT enviado ya expiró, la petición arrojará un error.</p>
+</blockquote>
+<h4 id="request-body-1"><a class="header-link" href="#request-body-1"></a>Request Body</h4>
+<pre class="hljs"><code><span class="hljs-attribute">No tiene</span></code></pre><h4 id="retorna-1"><a class="header-link" href="#retorna-1"></a>Retorna</h4>
+<pre class="hljs"><code>JWT <span class="hljs-built_in">del</span> mismo usuario, renovado <span class="hljs-built_in">con</span> <span class="hljs-number">2</span> días más de expiración</code></pre><h4 id="errores-1"><a class="header-link" href="#errores-1"></a>Errores</h4>
+<pre class="hljs"><code><span class="hljs-symbol">500 </span>token_must_be_provided Si no se entrega un JWT
+<span class="hljs-symbol">500 </span>invalid_token Si el JWT no tiene el formato correcto o ya expiró
+<span class="hljs-symbol">500 </span>token_user_not_found Si el usuario vinculado al JWT ya no existe
+<span class="hljs-symbol">500 </span>error_retrieving_user Si hay un <span class="hljs-keyword">error</span> al buscar el usuario
+<span class="hljs-symbol">500 </span>user_not_found Si el email no está registrado
+<span class="hljs-symbol">500 </span>user_disabled Si el usuario es tipo <span class="hljs-number">3</span> y no está habilitado
+<span class="hljs-symbol">500 </span>user_not_verified Si el usuario no está verificado
+<span class="hljs-symbol">500 </span>error_retrieving_features Si hay un <span class="hljs-keyword">error</span> al obtener las features del</code></pre><hr>
+<h3 id="social-login-post"><a class="header-link" href="#social-login-post"></a>Social login <code>POST</code></h3>
+<pre class="hljs"><code><span class="hljs-regexp">/auth/</span>social</code></pre><p>Iniciar sesión con cuenta externa, ya sea Google o Facebook entre otros proveedores de identidad</p>
+<blockquote>
+<p>Solo está soportado Google de momento.
+Si no existe una cuenta AppAR asociada al email de la cuenta externa, se crea una cuenta AppAR y se procede con el login.
+Debe enviarse la firma HMAC del proveedor, en caso de google la cabecera es &quot;google-signature&quot;.</p>
+</blockquote>
+<h4 id="request-body-2"><a class="header-link" href="#request-body-2"></a>Request Body</h4>
+<pre class="hljs"><code>{
+    <span class="hljs-attr">&quot;email&quot;</span>: <span class="hljs-string">&quot;email@gmail.com&quot;</span>,
+    <span class="hljs-attr">&quot;name&quot;</span>: <span class="hljs-string">&quot;Nombre&quot;</span>,
+    <span class="hljs-attr">&quot;lastname&quot;</span>: <span class="hljs-string">&quot;Apellido&quot;</span>,
+    <span class="hljs-attr">&quot;provider_name&quot;</span>: <span class="hljs-string">&quot;google&quot;</span>,
+    <span class="hljs-attr">&quot;provider_token&quot;</span>: <span class="hljs-string">&quot;123123&quot;</span>
+}</code></pre><h4 id="retorna-2"><a class="header-link" href="#retorna-2"></a>Retorna</h4>
+<pre class="hljs"><code><span class="hljs-attribute">JWT firmado y listo para utilizar como credencial en las peticiones posteriores</span></code></pre><h4 id="errores-2"><a class="header-link" href="#errores-2"></a>Errores</h4>
+<pre class="hljs"><code><span class="hljs-symbol">500 </span>invalid_provider Si provider_name no está en la lista de proveedores
+<span class="hljs-symbol">500 </span>invalid_signature Si la firma HMAC correspondiente no está o no es válida
+<span class="hljs-symbol">500 </span>error_retrieving_login_provider Si hay un <span class="hljs-keyword">error</span> buscando el proveedor en la <span class="hljs-keyword">base</span> de datos
+<span class="hljs-symbol">500 </span>error_checking_email Si hay un <span class="hljs-keyword">error</span> buscando el email entregado
+<span class="hljs-symbol">500 </span>email_exists Si ya hay una cuenta creada con el email asociado al proveedor
+<span class="hljs-symbol">500 </span>error_creating_user Si hay un <span class="hljs-keyword">error</span> al crear la cuenta AppAR
+<span class="hljs-symbol">500 </span>error_creating_login_provider Si hay un <span class="hljs-keyword">error</span> asociando la cuenta al proveedor</code></pre><blockquote>
+<p>Esta petición envía un email interno de notificación si se crea una cuenta con los datos del proveedor externo.</p>
+</blockquote>
+    </article>
+  </body>
+</html>

@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
+    <title>Url externo &#x60;GET&#x60;</title>
+    <link type="text/css" rel="stylesheet" href="../assets/css/github-markdown.css">
+    <link type="text/css" rel="stylesheet" href="../assets/css/pilcrow.css">
+    <link type="text/css" rel="stylesheet" href="../assets/css/hljs-github.min.css"/>
+  </head>
+  <body>
+    <article class="markdown-body"><h3 id="url-externo-get"><a class="header-link" href="#url-externo-get"></a>Url externo <code>GET</code></h3>
+<pre class="hljs"><code><span class="hljs-regexp">/external/</span>:provider_id</code></pre><p>Obtener enlace de un producto externo, dando su id externa, es buscado en AppAR si tiene algún producto o colección vinculados y retornará el correspondiente.</p>
+<blockquote>
+<p>Una id externa no puede estar asignada a un producto y una colección al mismo tiempo.
+La respuesta de esta petición debe ser agregada a la ruta del visor 3D: <a href="https://webviewer.appar.io">https://webviewer.appar.io</a> o <a href="https://dev.webviewer.appar.io">https://dev.webviewer.appar.io</a> para entorno sandbox.
+Esta ruta es pública, no necesita Bearer Token en la cabecera.</p>
+</blockquote>
+<h4 id="request-body"><a class="header-link" href="#request-body"></a>Request Body</h4>
+<pre class="hljs"><code><span class="hljs-attribute">No tiene</span></code></pre><h4 id="retorna"><a class="header-link" href="#retorna"></a>Retorna</h4>
+<pre class="hljs"><code><span class="hljs-string">&quot;/collection/1&quot;</span></code></pre><p>o</p>
+<pre class="hljs"><code><span class="hljs-string">&quot;/1&quot;</span></code></pre><p>Dependiendo de si es una colección o un producto</p>
+<h4 id="errores"><a class="header-link" href="#errores"></a>Errores</h4>
+<pre class="hljs"><code><span class="hljs-symbol">500 </span>error_retrieving_product_provider Si hay un <span class="hljs-keyword">error</span> buscando el proveedor externo
+<span class="hljs-symbol">500 </span>error_retrieving_collection_provider Si hay un <span class="hljs-keyword">error</span> buscando el proveedor externo
+<span class="hljs-symbol">500 </span>no_provider_linked Si no hay ni un producto ni colección asociado a este id externo
+<span class="hljs-symbol">500 </span>error_retrieving_model Si hay un <span class="hljs-keyword">error</span> buscando el modelo asociado al producto
+<span class="hljs-symbol">500 </span>model_not_found Si el producto asociado no tiene modelo <span class="hljs-number">3</span>D</code></pre>    </article>
+  </body>
+</html>

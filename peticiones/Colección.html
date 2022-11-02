@@ -1,0 +1,99 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
+    <title>Obtener &#x60;GET&#x60;</title>
+    <link type="text/css" rel="stylesheet" href="../assets/css/github-markdown.css">
+    <link type="text/css" rel="stylesheet" href="../assets/css/pilcrow.css">
+    <link type="text/css" rel="stylesheet" href="../assets/css/hljs-github.min.css"/>
+  </head>
+  <body>
+    <article class="markdown-body"><h3 id="obtener-get"><a class="header-link" href="#obtener-get"></a>Obtener <code>GET</code></h3>
+<pre class="hljs"><code><span class="hljs-regexp">/collection/</span>:collection_id</code></pre><p>Obtener datos y modelos de colección</p>
+<blockquote>
+<p>Esta ruta es pública, no se necesita Bearer Token en la cabecera.</p>
+</blockquote>
+<h4 id="request-body"><a class="header-link" href="#request-body"></a>Request Body</h4>
+<pre class="hljs"><code><span class="hljs-attribute">No tiene</span></code></pre><h4 id="retorna"><a class="header-link" href="#retorna"></a>Retorna</h4>
+<pre class="hljs"><code>{
+    <span class="hljs-attr">&quot;collection_id&quot;</span>: <span class="hljs-number">15</span>,
+    <span class="hljs-attr">&quot;name&quot;</span>: <span class="hljs-string">&quot;Colección&quot;</span>,
+    <span class="hljs-attr">&quot;store_id&quot;</span>: <span class="hljs-number">1</span>,
+    <span class="hljs-attr">&quot;store&quot;</span>: <span class="hljs-string">&quot;Tienda&quot;</span>,
+    <span class="hljs-attr">&quot;call_to_action&quot;</span>: <span class="hljs-string">&quot;Ver producto en tienda&quot;</span>,
+    <span class="hljs-attr">&quot;logo_url&quot;</span>: <span class="hljs-literal">null</span>,
+    <span class="hljs-attr">&quot;products&quot;</span>: [
+        {
+            <span class="hljs-attr">&quot;product_name&quot;</span>: <span class="hljs-string">&quot;Producto 1&quot;</span>,
+            <span class="hljs-attr">&quot;product_url&quot;</span>: <span class="hljs-literal">null</span>,
+            <span class="hljs-attr">&quot;store&quot;</span>: <span class="hljs-string">&quot;Tienda&quot;</span>,
+            <span class="hljs-attr">&quot;variant_id&quot;</span>: <span class="hljs-number">3</span>,
+            <span class="hljs-attr">&quot;product_id&quot;</span>: <span class="hljs-number">3</span>,
+            <span class="hljs-attr">&quot;provider_product_id&quot;</span>: <span class="hljs-literal">null</span>,
+            <span class="hljs-attr">&quot;color&quot;</span>: <span class="hljs-literal">null</span>,
+            <span class="hljs-attr">&quot;width&quot;</span>: <span class="hljs-number">0</span>,
+            <span class="hljs-attr">&quot;height&quot;</span>: <span class="hljs-number">0</span>,
+            <span class="hljs-attr">&quot;length&quot;</span>: <span class="hljs-number">0</span>,
+            <span class="hljs-attr">&quot;created_at&quot;</span>: <span class="hljs-string">&quot;2021-06-25T19:24:41.000Z&quot;</span>,
+            <span class="hljs-attr">&quot;updated_at&quot;</span>: <span class="hljs-string">&quot;2021-06-25T19:24:41.000Z&quot;</span>,
+            <span class="hljs-attr">&quot;model_id&quot;</span>: <span class="hljs-number">3</span>,
+            <span class="hljs-attr">&quot;android_model_url&quot;</span>: <span class="hljs-literal">null</span>,
+            <span class="hljs-attr">&quot;ios_model_url&quot;</span>: <span class="hljs-literal">null</span>,
+            <span class="hljs-attr">&quot;status_id&quot;</span>: <span class="hljs-number">4</span>,
+            <span class="hljs-attr">&quot;ar_placement&quot;</span>: <span class="hljs-string">&quot;floor&quot;</span>,
+            <span class="hljs-attr">&quot;ar_scale&quot;</span>: <span class="hljs-literal">null</span>,
+            <span class="hljs-attr">&quot;ar_fixed_annotation&quot;</span>: <span class="hljs-literal">null</span>,
+            <span class="hljs-attr">&quot;annotations&quot;</span>: []
+        },
+        {
+            <span class="hljs-attr">&quot;product_name&quot;</span>: <span class="hljs-string">&quot;Producto 2&quot;</span>,
+            <span class="hljs-attr">&quot;product_url&quot;</span>: <span class="hljs-literal">null</span>,
+            <span class="hljs-attr">&quot;store&quot;</span>: <span class="hljs-string">&quot;Tienda&quot;</span>,
+            <span class="hljs-attr">&quot;variant_id&quot;</span>: <span class="hljs-number">24</span>,
+            <span class="hljs-attr">&quot;product_id&quot;</span>: <span class="hljs-number">22</span>,
+            <span class="hljs-attr">&quot;provider_product_id&quot;</span>: <span class="hljs-literal">null</span>,
+            <span class="hljs-attr">&quot;color&quot;</span>: <span class="hljs-literal">null</span>,
+            <span class="hljs-attr">&quot;width&quot;</span>: <span class="hljs-literal">null</span>,
+            <span class="hljs-attr">&quot;height&quot;</span>: <span class="hljs-literal">null</span>,
+            <span class="hljs-attr">&quot;length&quot;</span>: <span class="hljs-literal">null</span>,
+            <span class="hljs-attr">&quot;created_at&quot;</span>: <span class="hljs-string">&quot;2021-08-16T20:12:26.000Z&quot;</span>,
+            <span class="hljs-attr">&quot;updated_at&quot;</span>: <span class="hljs-string">&quot;2021-08-16T20:12:27.000Z&quot;</span>,
+            <span class="hljs-attr">&quot;model_id&quot;</span>: <span class="hljs-number">24</span>,
+            <span class="hljs-attr">&quot;android_model_url&quot;</span>: <span class="hljs-literal">null</span>,
+            <span class="hljs-attr">&quot;ios_model_url&quot;</span>: <span class="hljs-literal">null</span>,
+            <span class="hljs-attr">&quot;status_id&quot;</span>: <span class="hljs-number">4</span>,
+            <span class="hljs-attr">&quot;ar_placement&quot;</span>: <span class="hljs-string">&quot;floor&quot;</span>,
+            <span class="hljs-attr">&quot;ar_scale&quot;</span>: <span class="hljs-literal">null</span>,
+            <span class="hljs-attr">&quot;ar_fixed_annotation&quot;</span>: <span class="hljs-literal">null</span>,
+            <span class="hljs-attr">&quot;annotations&quot;</span>: []
+        }
+    ]
+}</code></pre><h4 id="errores"><a class="header-link" href="#errores"></a>Errores</h4>
+<pre class="hljs"><code><span class="hljs-symbol">500 </span>error_retrieving_collection Si hay un <span class="hljs-keyword">error</span> al buscar la colección
+<span class="hljs-symbol">500 </span>collection_not_found Si no se encuentra una colección con el id entregado
+<span class="hljs-symbol">500 </span>error_checking_pro Si hay un <span class="hljs-keyword">error</span> verificando que el usuario tenga pro
+<span class="hljs-symbol">500 </span>collection_not_available Si el usuario dueño de la colección no tiene pro
+<span class="hljs-symbol">500 </span>error_retrieving_collection_products Si hay un <span class="hljs-keyword">error</span> obteniendo los productos de la colección
+<span class="hljs-symbol">500 </span>error_checking_payment Si hay un <span class="hljs-keyword">error</span> verificando los pagos del usuario dueño de la colección
+<span class="hljs-symbol">500 </span>product_not_available Si los productos de la colección no están en un pago vigente
+<span class="hljs-symbol">500 </span>error_retrieving_annotations Si hay un <span class="hljs-keyword">error</span> obteniendo las anotaciones de los productos
+<span class="hljs-symbol">500 </span>error_adding_visit Si hay un <span class="hljs-keyword">error</span> agregando la visita a un producto de la colección</code></pre><hr>
+<h3 id="agregar-aumentación-put"><a class="header-link" href="#agregar-aumentación-put"></a>Agregar aumentación <code>PUT</code></h3>
+<pre class="hljs"><code>/collection/<span class="hljs-symbol">:collection_id/augmentation</span></code></pre><p>Sumar una aumentación a todos los productos de la colección</p>
+<blockquote>
+<p>Esta ruta es pública, no se necesita Bearer Token en la cabecera.</p>
+</blockquote>
+<h4 id="request-body-1"><a class="header-link" href="#request-body-1"></a>Request Body</h4>
+<pre class="hljs"><code><span class="hljs-attribute">No tiene</span></code></pre><h4 id="retorna-1"><a class="header-link" href="#retorna-1"></a>Retorna</h4>
+<pre class="hljs"><code><span class="hljs-attribute">Nada</span></code></pre><h4 id="errores-1"><a class="header-link" href="#errores-1"></a>Errores</h4>
+<pre class="hljs"><code><span class="hljs-symbol">500 </span>error_retrieving_collection Si hay un <span class="hljs-keyword">error</span> buscando la colección
+<span class="hljs-symbol">500 </span>collection_not_found Si no se encuentra una colección con la id entregada
+<span class="hljs-symbol">500 </span>error_checking_pro Si hay un <span class="hljs-keyword">error</span> verificando que el usuario tenga pro
+<span class="hljs-symbol">500 </span>collection_not_available Si el usuario dueño de la colección no tiene pro
+<span class="hljs-symbol">500 </span>error_retrieving_collection_products Si hay un <span class="hljs-keyword">error</span> obteniendo los productos de la colección
+<span class="hljs-symbol">500 </span>error_checking_payment Si hay un <span class="hljs-keyword">error</span> verificando los pagos del usuario dueño de la colección
+<span class="hljs-symbol">500 </span>product_not_available Si los productos de la colección no están en un pago vigente
+<span class="hljs-symbol">500 </span>error_adding_augmentation Si hay un <span class="hljs-keyword">error</span> al sumar la aumentación a uno o más productos</code></pre>    </article>
+  </body>
+</html>
